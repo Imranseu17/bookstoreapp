@@ -1,0 +1,21 @@
+
+@(bookForm : Form[Book])
+@import views.html.partials._bookFormFileds
+
+@layout("Update Book"){
+    <h1>Update Book</h1>
+
+    @helper.form(action = routes.BooksController.update(),
+         'id -> "bookUpdateForm"){
+
+        @_bookFormFileds(bookForm)
+
+
+    }
+
+    <button class="btn btn-primary" onclick="sendPutRequest('bookUpdateForm',
+            '@routes.HomeController.index()')">
+        Edit Book
+    </button>
+}
+
